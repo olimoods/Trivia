@@ -58,27 +58,27 @@
         </question>
         <question>
             <q>Which fact about Napoleon is not true?</q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <a1>He was once attacked by rabbits.</a1>
+            <a2>A New Orleans man hired a pirate to rescue Napoleon from his prison on St. Helena.</a2>
+            <a3>He was short for his era.</a3>
+            <a4>His army found the Rosetta Stone.</a4>
+            <correct>2</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>Which fact is not true?</q>
+            <a1>Before the mid-19th century dentures were commonly made with teeth pulled from the mouths of dead soldiers.</a1>
+            <a2>The Hitler killed more people than Stalin did.</a2>
+            <a3>Ice age Britons used skulls of the dead as cups.</a3>
+            <a4>The Romans used human urine as mouthwash.</a4>
+            <correct>1</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>What fact is not true?</q>
+            <a1>Animals were put on trial in medieval times and routinely sentenced to death.</a1>
+            <a2>Japanese samurai's disemboweled themselves with their sword when in danger of being captured.</a2>
+            <a3>In the 16th and 17th century wealthy Europeans ate corpses thinking they'd cure them of ailments.</a3>
+            <a4>Roughly 3,000 people died when Pompeii erupted.</a4>
+            <correct>3</correct>
         </question>
     </history>
     <math>
