@@ -1,0 +1,331 @@
+<questions>
+    <history>
+        <question>
+           <q>Who was Kit Carson?</q>
+            <a1>A rich northerner in the 1800s</a1>
+            <a2>A western frontiersman</a2>
+            <a3>A traitor in the Mexican American War</a3>
+            <a4>An important confederate soldier</a4>
+            <correct>1</correct>
+        </question>
+        <question>
+            <q>Where is the fertile crescent?</q>
+            <a1>Europe</a1>
+            <a2>Asia</a2>
+            <a3>Africa</a3>
+            <a4>Middle East</a4>
+            <correct>3</correct>
+        </question>
+        <question>
+            <q>What was the name of Metacomet’s father?</q>
+            <a1>King Philip</a1>
+            <a2>Massasoit</a2>
+            <a3>Wamsutta</a3>
+            <a4>Narbona</a4>
+            <correct>1</correct>
+        </question>
+        <question>
+            <q>Who was the 30th president of the United States?</q>
+            <a1>John C. Coolidge</a1>
+            <a2>Franklin D. Roosevelt</a2>
+            <a3>Warren D. Harding</a3>
+            <a4>Dwight D. Eisenhower</a4>
+            <correct>0</correct>
+        </question>
+        <question>
+            <q>Who was the 14th president of the United States?</q>
+            <a1>Millard Fillmore</a1>
+            <a2>James Buchanan</a2>
+            <a3>Franklin Pierce</a3>
+            <a4>Zachary Taylor</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>Which fact is not true about Hitler?</q>
+            <a1>He was a vegetarian.</a1>
+            <a2>He was addicted to chocolate.</a2>
+            <a3>His middle name was Alios.</a3>
+            <a4>He loved Disney and Snow White was his favorite.</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>Which fact is not true about Stalin?</q>
+            <a1>His childhood nickname was Pocky.</a1>
+            <a2>One of his favorite movies was Tarzan.</a2>
+            <a3>He was nominated for the Nobel Peace Prize twice.</a3>
+            <a4>He hated wine.</a4>
+            <correct>3</correct>
+        </question>
+        <question>
+            <q>Which fact about Napoleon is not true?</q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+    </history>
+    <math>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+    </math>
+    <songs>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+    </songs>
+    <sports>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+    </sports>
+
+</questions>
