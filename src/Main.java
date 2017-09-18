@@ -33,6 +33,7 @@ import java.util.List;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
@@ -44,6 +45,7 @@ import org.w3c.dom.Element;
 
 public class Main extends Application {
 
+    private MainMenu mainMenu;
     private GameMenu gameMenu;
     private Stage primaryStage;
 
@@ -84,25 +86,25 @@ public class Main extends Application {
         imgView.setFitWidth(800);
         imgView.setFitHeight(720);
 
-        gameMenu = new GameMenu();
-        gameMenu.setVisible(true);
+        mainMenu = new MainMenu();
+        mainMenu.setVisible(true);
 
-        root.getChildren().addAll(imgView, gameMenu);
+        root.getChildren().addAll(imgView, mainMenu);
         Scene scene = new Scene(root);
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ESCAPE) {
-                if (!gameMenu.isVisible()) {
-                    FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
+                if (!mainMenu.isVisible()) {
+                    FadeTransition ft = new FadeTransition(Duration.seconds(0.5), mainMenu);
                     ft.setFromValue(0);
                     ft.setToValue(1);
 
-                    gameMenu.setVisible(true);
+                    mainMenu.setVisible(true);
                     ft.play();
                 } else {
-                    FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
+                    FadeTransition ft = new FadeTransition(Duration.seconds(0.5), mainMenu);
                     ft.setFromValue(1);
                     ft.setToValue(0);
-                    ft.setOnFinished(evt -> gameMenu.setVisible(false));
+                    ft.setOnFinished(evt -> mainMenu.setVisible(false));
                     ft.play();
                 }
             }
@@ -116,7 +118,13 @@ public class Main extends Application {
         Canvas canvas = new Canvas(800, 720);
         g = canvas.getGraphicsContext2D();
 
-        root.getChildren().add(canvas);
+
+        gameMenu = new GameMenu();
+        gameMenu.setVisible(true);
+
+        root.getChildren().addAll(canvas, gameMenu);
+
+
         Scene scene = new Scene(root);
         scene.setOnMouseMoved(event -> {
             mouseX = event.getX();
@@ -142,9 +150,47 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
     private class GameMenu extends Parent {
         public GameMenu() {
+            VBox menu = new VBox(10);
+            menu.setTranslateX(100);
+            menu.setTranslateY(200);
+
+            final int offset = 200;
+
+            Title question = new Title("Question");
+
+
+            QuestionButton quesbtnA = new QuestionButton("Question A");
+            quesbtnA.setOnMouseClicked(event -> {
+
+            });
+            QuestionButton quesbtnB = new QuestionButton("Question B");
+            quesbtnA.setOnMouseClicked(event -> {
+
+            });
+            QuestionButton quesbtnC = new QuestionButton("Question C");
+            quesbtnA.setOnMouseClicked(event -> {
+
+            });
+            QuestionButton quesbtnD = new QuestionButton("Question D");
+            quesbtnA.setOnMouseClicked(event -> {
+
+            });
+
+            menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD);
+
+            Rectangle bg = new Rectangle(800, 720);
+            bg.setFill(Color.GRAY);
+            bg.setOpacity(0.4);
+            getChildren().addAll(bg, menu);
+
+        }
+    }
+
+
+    private class MainMenu extends Parent {
+        public MainMenu() {
             VBox menu0 = new VBox(10);
             VBox menu1 = new VBox(10);
 
@@ -246,6 +292,43 @@ public class Main extends Application {
             DropShadow drop = new DropShadow(80, Color.WHITE);
             drop.setInput(new Glow(8));
             drop.setSpread(1.5);
+
+            setOnMousePressed(event -> setEffect(drop));
+            setOnMouseReleased(event -> setEffect(null));
+        }
+    }
+
+    private static class QuestionButton extends StackPane {
+        private Text text;
+
+        public QuestionButton(String name) {
+            text = new Text(name);
+            text.setFont(text.getFont().font(20));
+
+            Rectangle bg = new Rectangle(300, 30);
+            bg.setOpacity(0.8);
+            bg.setFill(Color.DARKGRAY);
+            bg.setEffect(new GaussianBlur(4.5));
+
+            setAlignment(Pos.CENTER_LEFT);
+            setRotate(-0.5);
+            getChildren().addAll(bg, text);
+
+            setOnMouseEntered(event -> {
+                bg.setTranslateX(20);
+                text.setTranslateX(20);
+                bg.setFill(Color.DARKGRAY);
+                text.setFill(Color.WHITE);
+            });
+            setOnMouseExited(event -> {
+                bg.setTranslateX(0);
+                text.setTranslateX(0);
+                bg.setFill(Color.DARKGRAY);
+                text.setFill(Color.BLACK);
+            });
+
+            DropShadow drop = new DropShadow(100, Color.WHITE);
+            drop.setInput(new Glow());
 
             setOnMousePressed(event -> setEffect(drop));
             setOnMouseReleased(event -> setEffect(null));

@@ -52,7 +52,68 @@ public class Particle {
         g.fillOval(x, y, radius, radius);
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public Point2D getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(Point2D velocity) {
+        this.velocity = velocity;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double getLife() {
+        return life;
+    }
+
+    public double getDecay() {
+        return decay;
+    }
+
+    public void setDecay(double decay) {
+        this.decay = decay;
+    }
+
+    public Paint getColor() {
+        return color;
+    }
+
+    public void setColor(Paint color) {
+        this.color = color;
+    }
+
+    public BlendMode getBlendMode() {
+        return blendMode;
+    }
+
+    public void setBlendMode(BlendMode blendMode) {
+        this.blendMode = blendMode;
+    }
+
     public void setLife(double life){
         this.life = life;
+
     }
 }
