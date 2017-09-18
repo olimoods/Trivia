@@ -16,7 +16,7 @@ public class FireEmitter extends Emitter {
 
         for (int i = 0; i < numParticals; i++) {
             Particle p = new Particle(x, y, new java.awt.geom.Point2D.Double((Math.random() - 0.5) * 0.4, Math.random() * -2),
-                    10, 0.8, Color.rgb(230, 20, 20), BlendMode.ADD);
+                    8, 1.0, Color.rgb(230, 20, 20), BlendMode.ADD);
             p.setLife(0.5);
             particles.add(p);
         }
