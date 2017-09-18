@@ -16,6 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
@@ -25,6 +28,8 @@ import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -122,8 +127,30 @@ public class Main extends Application {
         gameMenu = new GameMenu();
         gameMenu.setVisible(true);
 
-        root.getChildren().addAll(canvas, gameMenu);
 
+        //Images for avatar
+        InputStream py1 = Files.newInputStream(Paths.get("res/images/player1.png"));
+        InputStream py2 = Files.newInputStream(Paths.get("res/images/player2.png"));
+
+        Image img1 = new Image(py1);
+        py1.close();
+        Image img2 = new Image(py2);
+        py2.close();
+
+        ImageView img = new ImageView(img1);
+        img.setFitWidth(50);
+        img.setFitHeight(50);
+        img.setX(0);
+        img.setY(0);
+
+        // Music system (really bad) occasional error
+        String str = "res/songs/OliverAndTyler.m4a";
+        String file = new File(str).toURI().toString();
+        AudioClip clip = new AudioClip(file);
+        clip.play();
+
+
+        root.getChildren().addAll(canvas, img, gameMenu);
 
         Scene scene = new Scene(root);
         scene.setOnMouseMoved(event -> {
