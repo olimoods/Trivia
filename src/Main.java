@@ -1,5 +1,3 @@
-
-
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -32,6 +30,13 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.io.File;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 
 /**
  * Created by student on 9/12/17.
@@ -86,19 +91,18 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ESCAPE) {
-                if (!gameMenu.isVisible()){
+                if (!gameMenu.isVisible()) {
                     FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
                     ft.setFromValue(0);
                     ft.setToValue(1);
 
                     gameMenu.setVisible(true);
                     ft.play();
-                }
-                else {
+                } else {
                     FadeTransition ft = new FadeTransition(Duration.seconds(0.5), gameMenu);
                     ft.setFromValue(1);
                     ft.setToValue(0);
-                    ft.setOnFinished(evt ->gameMenu.setVisible(false));
+                    ft.setOnFinished(evt -> gameMenu.setVisible(false));
                     ft.play();
                 }
             }
@@ -106,7 +110,7 @@ public class Main extends Application {
         return scene;
     }
 
-    private Scene createGame() throws IOException{
+    private Scene createGame() throws IOException {
         Pane root = new Pane();
         root.setPrefSize(800, 720);
         Canvas canvas = new Canvas(800, 720);
@@ -129,7 +133,6 @@ public class Main extends Application {
         timer.start();
 
 
-
         return scene;
     }
 
@@ -140,8 +143,8 @@ public class Main extends Application {
     }
 
 
-    private class GameMenu extends Parent{
-        public GameMenu(){
+    private class GameMenu extends Parent {
+        public GameMenu() {
             VBox menu0 = new VBox(10);
             VBox menu1 = new VBox(10);
 
@@ -157,7 +160,6 @@ public class Main extends Application {
             Title title = new Title("Trivia");
 
 
-
             MenuButton btnPlay = new MenuButton("Play");
             btnPlay.setOnMouseClicked(event -> {
                 try {
@@ -168,7 +170,7 @@ public class Main extends Application {
                     ft.play();
                     primaryStage.setScene(createGame());
 
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
 
@@ -197,7 +199,7 @@ public class Main extends Application {
             });
 
             MenuButton btnBack = new MenuButton("Back");
-            btnBack.setOnMouseClicked(event ->{
+            btnBack.setOnMouseClicked(event -> {
                 getChildren().add(menu0);
                 TranslateTransition tt0 = new TranslateTransition(Duration.seconds(0.25), menu1);
                 tt0.setToX(menu1.getTranslateX() + offset);
@@ -253,7 +255,7 @@ public class Main extends Application {
     private static class MenuButton extends StackPane {
         private Text text;
 
-        public MenuButton(String name){
+        public MenuButton(String name) {
             text = new Text(name);
             text.setFont(text.getFont().font(20));
 
@@ -290,5 +292,72 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
+
+        try {
+            File inputFile = new File("input.txt");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
+            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+            NodeList nList = doc.getElementsByTagName("questions");
+
+            String question;
+            String a1;
+            String a2;
+            String a3;
+            String a4;
+            int correct;
+
+
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Node nNode1 = nList.item(temp);
+                NodeList nl = nNode1.getChildNodes();
+                System.out.println("\nCurrent Element :" + nNode1.getNodeName());
+                for (int temp1 = 0; temp1 < nl.getLength(); temp1++) {
+                    Node nNode = nl.item(temp1);
+                    if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element eElement = (Element) nNode;
+                        question = eElement
+                                .getElementsByTagName("q")
+                                .item(0)
+                                .getTextContent();
+                        a1 = eElement
+                                .getElementsByTagName("a1")
+                                .item(0)
+                                .getTextContent();
+                        a2 = eElement
+                                .getElementsByTagName("a2")
+                                .item(0)
+                                .getTextContent();
+                        a3 = eElement
+                                .getElementsByTagName("a3")
+                                .item(0)
+                                .getTextContent();
+                        a3 = eElement
+                                .getElementsByTagName("a4")
+                                .item(0)
+                                .getTextContent();
+                        correct = Integer.parseInt(eElement
+                                .getElementsByTagName("correct")
+                                .item(0)
+                                .getTextContent());
+
+                        System.out.println(question);
+
+
+//                    System.out.println("Marks : "
+//                            + eElement
+//                            .getElementsByTagName("marks")
+//                            .item(0)
+//                            .getTextContent());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
+
