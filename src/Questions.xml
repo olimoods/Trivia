@@ -163,88 +163,96 @@
             <correct>0</correct>
         </question>
     </math>
-    <songs> // do this
+    <songs>
         <question>
-            <q></q>
+        <q>What song has the lyrics:
+            "I knew when we colided
+            you're the one I have decided
+            who's one of my kind"</q>
+        <a1>"I'm Yours" by Jason Maraz</a1>
+        <a2>"Hey, Soul Sister" by Train</a2>
+        <a3>"Hey There Delilah" by Plain White T's</a3>
+        <a4>"Mr. Brightside" by The Killers</a4>
+        <correct>1</correct>
+    </question>
+        <question>
+            <q>What song is this?</q>
             <a1></a1>
             <a2></a2>
             <a3></a3>
             <a4></a4>
             <correct></correct>
+        </question> //Oliver's singing... do this later??
+        <question>
+            <q>Which song is not by Bruno Mars?</q>
+            <a1>Just the Way You Are</a1>
+            <a2>Grenade</a2>
+            <a3>Uptown Funk</a3>
+            <a4>That's What I Like</a4>
+            <correct>2</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
+            <q>What song is not by B.O.B.?</q>
+            <a1>Airplanes</a1>
+            <a2>We Still In This Bitch</a2>
+            <a3>Hood Go Crazy</a3>
+            <a4>John Doe</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>Which song is not by Nicki Minaj?</q>
+            <a1>Super Bass</a1>
+            <a2>Only</a2>
+            <a3>Anaconda</a3>
+            <a4>Thro Sum Mo</a4>
+            <correct>3</correct>
+        </question>
+        <question>
+            <q>What song has the lyrics:
+                "but regardless I'll always keep keepin' on
+                fuck fake friends, we don't take L's we just make M's"</q>
+            <a1>"Me, Myself, and I" by G-Eazy and Bebe Rexha</a1>
+            <a2>"Tumblr Girls" by G-Eazy</a2>
+            <a3>"High You Are" by What So Not</a3>
+            <a4>"Let's Get Lost" by G-Eazy</a4>
             <correct></correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>What song has the lyrics:
+                "Now better men than me have failed
+                drinking from that unholy grail
+                now check it out, I've got her and she got me"</q>
+            <a1>"Holy Grail" by Jay-Z</a1>
+            <a2>"Honey, I'm Good" by Andy Grammer</a2>
+            <a3>"iSpy" by Kyle</a3>
+            <a4>"Bad and Boujee" by Migos</a4>
+            <correct>1</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>What musical is the song "One Day More" from?</q>
+            <a1>Wicked</a1>
+            <a2>Hamilton</a2>
+            <a3>Next to Normal</a3>
+            <a4>Les Misérables</a4>
+            <correct>3</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>When did "The Best of Both Worlds" by Hannah Montana come out?</q>
+            <a1>2004</a1>
+            <a2>2005</a2>
+            <a3>2006</a3>
+            <a4>2007</a4>
+            <correct>2</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>What year did Nicki Minaj release her first album?</q>
+            <a1>2006</a1>
+            <a2>2007</a2>
+            <a3>2010</a3>
+            <a4>2011</a4>
+            <correct>1</correct>
         </question>
-        <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
-        </question>
-        <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
-        </question>
-        <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
-        </question>
-        <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
-        </question>
-    </songs>
+    </songs> // do Oliver's song question (question #2)
     <sports>
         <question>
             <q>Which Michael Phelps fact is not true?</q>
@@ -263,68 +271,68 @@
             <correct>3</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>Which baseball fact is not true?</q>
+            <a1>The National Baseball Hall of Fame and Museum was created to celebrate baseball's 50th anniversary.</a1>
+            <a2>There are a total of 18 minutes of action in an average game.</a2>
+            <a3>The first World Series was played between Pittsburgh and Boston in 1903.</a3>
+            <a4>Pitcher Nolan Ryan played 27 seasons in major league baseball and struck out more batters in his career than any other pitcher.</a4>
+            <correct>0</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>Which hockey fact is not true?</q>
+            <a1>Only 11 goalies have ever scored a goal in the history of the NHL.</a1>
+            <a2>The Red Wings have 12 Stanley Cup titles.</a2>
+            <a3>The Boston Bruins name is spelled "BQSTQN BRUINS" on the Stanley Cup for their 1971-72 title.</a3>
+            <a4>The Dallas Stars won the 1999 Stanley Cup.</a4>
+            <correct>1</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>Which Olympic fact is not true?</q>
+            <a1>China did not win an Olympic Medal until 1984, and they won 100 medal in the 2008 Beijing games.</a1>
+            <a2>Germany has held the summer Olympics three times.</a2>
+            <a3>Bob Beamon’s 1968 Olympic record in the long jump would have won the 2012 Olympics by almost 2 feet.</a3>
+            <a4>There have been 3 Olympic games held in countries that no longer exist.</a4>
+            <correct>1</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>Which basketball fact is not true?</q>
+            <a1>Only 72 players in NBA history have attempted more free throws in their careers than the 5,317 that Shaquille O'Neal missed.</a1>
+            <a2>The Golden State Warriors won the 1992 NBA playoffs.</a2>
+            <a3>Bruce Jenner was drafted NO. 139 by the NBA's Kansas City Kings after winning the Men's Decathlon at the 1976 Olympics.</a3>
+            <a4>The Detroit Pistons won the 1989 NBA playoffs.</a4>
+            <correct>1</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>Which football fact is not true?</q>
+            <a1>There has been a regular-season NFL game on every single day of the week.</a1>
+            <a2>The Cleveland Browns are the only team to neither play in nor host a Super Bowl.</a2>
+            <a3>Joe Gibbs is the only coach to win the Super Bowl with three different quarterbacks</a3>
+            <a4>The Dallas Cowboys won the 1993 Super Bowl.</a4>
+            <correct>3</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>Which city won the Stanley Cup, World Series, and Super Bowl all in the same year?</q>
+            <a1>Detroit</a1>
+            <a2>Boston</a2>
+            <a3>Cleveland</a3>
+            <a4>Chicago</a4>
+            <correct>0</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>Who won the 1968 Super Bowl?</q>
+            <a1>Oakland Raiders</a1>
+            <a2>Dallas Cowboys</a2>
+            <a3>Green Bay Packers</a3>
+            <a4>New England Patriots</a4>
+            <correct>2</correct>
         </question>
         <question>
-            <q></q>
-            <a1></a1>
-            <a2></a2>
-            <a3></a3>
-            <a4></a4>
-            <correct></correct>
+            <q>Who won the 1987 Masters tournament?</q>
+            <a1>Tiger Woods</a1>
+            <a2>Larry Mize</a2>
+            <a3>Steve Ballesteros</a3>
+            <a4>Greg Norman</a4>
+            <correct>1</correct>
         </question>
     </sports>
 
