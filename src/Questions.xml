@@ -1,0 +1,331 @@
+<questions>
+    <history>
+        <question>
+           <q>Who was Kit Carson?</q>
+            <a1>A rich northerner in the 1800s</a1>
+            <a2>A western frontiersman</a2>
+            <a3>A traitor in the Mexican American War</a3>
+            <a4>An important confederate soldier</a4>
+            <correct>1</correct>
+        </question>
+        <question>
+            <q>Where is the fertile crescent?</q>
+            <a1>Europe</a1>
+            <a2>Asia</a2>
+            <a3>Africa</a3>
+            <a4>Middle East</a4>
+            <correct>3</correct>
+        </question>
+        <question>
+            <q>What was the name of Metacomet’s father?</q>
+            <a1>King Philip</a1>
+            <a2>Massasoit</a2>
+            <a3>Wamsutta</a3>
+            <a4>Narbona</a4>
+            <correct>1</correct>
+        </question>
+        <question>
+            <q>Who was the 30th president of the United States?</q>
+            <a1>John C. Coolidge</a1>
+            <a2>Franklin D. Roosevelt</a2>
+            <a3>Warren D. Harding</a3>
+            <a4>Dwight D. Eisenhower</a4>
+            <correct>0</correct>
+        </question>
+        <question>
+            <q>Who was the 14th president of the United States?</q>
+            <a1>Millard Fillmore</a1>
+            <a2>James Buchanan</a2>
+            <a3>Franklin Pierce</a3>
+            <a4>Zachary Taylor</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>Which fact is not true about Hitler?</q>
+            <a1>He was a vegetarian.</a1>
+            <a2>He was addicted to chocolate.</a2>
+            <a3>His middle name was Alios.</a3>
+            <a4>He loved Disney and Snow White was his favorite.</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>Which fact is not true about Stalin?</q>
+            <a1>His childhood nickname was Pocky.</a1>
+            <a2>One of his favorite movies was Tarzan.</a2>
+            <a3>He was nominated for the Nobel Peace Prize twice.</a3>
+            <a4>He hated wine.</a4>
+            <correct>3</correct>
+        </question>
+        <question>
+            <q>Which fact about Napoleon is not true?</q>
+            <a1>He was once attacked by rabbits.</a1>
+            <a2>A New Orleans man hired a pirate to rescue Napoleon from his prison on St. Helena.</a2>
+            <a3>He was short for his era.</a3>
+            <a4>His army found the Rosetta Stone.</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>Which fact is not true?</q>
+            <a1>Before the mid-19th century dentures were commonly made with teeth pulled from the mouths of dead soldiers.</a1>
+            <a2>The Hitler killed more people than Stalin did.</a2>
+            <a3>Ice age Britons used skulls of the dead as cups.</a3>
+            <a4>The Romans used human urine as mouthwash.</a4>
+            <correct>1</correct>
+        </question>
+        <question>
+            <q>What fact is not true?</q>
+            <a1>Animals were put on trial in medieval times and routinely sentenced to death.</a1>
+            <a2>Japanese samurai's disemboweled themselves with their sword when in danger of being captured.</a2>
+            <a3>In the 16th and 17th century wealthy Europeans ate corpses thinking they'd cure them of ailments.</a3>
+            <a4>Roughly 3,000 people died when Pompeii erupted.</a4>
+            <correct>3</correct>
+        </question>
+    </history>
+    <math>
+        <question>
+            <q>What is 12 x 12</q>
+            <a1>24</a1>
+            <a2>120</a2>
+            <a3>144</a3>
+            <a4>149</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>What is 1345 + 8853?</q>
+            <a1>9298</a1>
+            <a2>10158</a2>
+            <a3>10198</a3>
+            <a4>10203</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>Which one is bigger?</q>
+            <a1>1,000,000,000,000,000,000,000</a1>
+            <a2>Three trillion</a2>
+            <a3>999,999,999,999,999,999,999,999,999</a3>
+            <a4>∞</a4>
+            <correct>3</correct>
+        </question>
+        <question>
+            <q>What is 3+28?</q>
+            <a1>29</a1>
+            <a2>30</a2>
+            <a3>31</a3>
+            <a4>32</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>What is (a^2+b^2=c^2)?</q>
+            <a1>Area formula</a1>
+            <a2>Pythagorean theorem</a2>
+            <a3>Avogadro's number</a3>
+            <a4>A random equation</a4>
+            <correct>1</correct>
+        </question>
+        <question>
+            <q>What is the area formula for a trapezoid?</q>
+            <a1>1/2  • base • height</a1>
+            <a2>((base1 + base2)/2) • height</a2>
+            <a3>(base1 + base2) • height</a3>
+            <a4>base1 + base2 + height</a4>
+            <correct>1</correct>
+        </question>
+        <question>
+            <q>What do you learn about in Geometry?</q>
+            <a1>Shapes in general</a1>
+            <a2>Nothing</a2>
+            <a3>Just how to draw a triangle</a3>
+            <a4>Limits</a4>
+            <correct>0</correct>
+        </question>
+        <question>
+            <q>What is 2 x 249?</q>
+            <a1>249</a1>
+            <a2>449</a2>
+            <a3>498</a3>
+            <a4>500</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>What is 405/5?</q>
+            <a1>60</a1>
+            <a2>61</a2>
+            <a3>80</a3>
+            <a4>81</a4>
+            <correct>3</correct>
+        </question>
+        <question>
+            <q>What is 2+2?</q>
+            <a1>4</a1>
+            <a2>2</a2>
+            <a3>6</a3>
+            <a4>1</a4>
+            <correct>0</correct>
+        </question>
+    </math>
+    <songs> // do this
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+    </songs>
+    <sports>
+        <question>
+            <q>Which Michael Phelps fact is not true?</q>
+            <a1>If he were his own country, he’d rank number 35 on the all-time Olympic Gold Medal List, ahead of 97 nations.</a1>
+            <a2>He has 23 gold medals.</a2>
+            <a3>He started swimming when he was 5.</a3>
+            <a4>The first stroke he learned was backstroke because he was scared of putting his head underwater.</a4>
+            <correct>2</correct>
+        </question>
+        <question>
+            <q>Which golf fact is not true?</q>
+            <a1>The average golf ball has 336 dimples</a1>
+            <a2>Jordan Spieth won $61,867 less at the masters than Arnold Palmer won in his entire career.</a2>
+            <a3>Astronauts played golf on the moon.</a3>
+            <a4>If you walked 18 holes, you would walk approximately 5 miles.</a4>
+            <correct>3</correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+        <question>
+            <q></q>
+            <a1></a1>
+            <a2></a2>
+            <a3></a3>
+            <a4></a4>
+            <correct></correct>
+        </question>
+    </sports>
+
+</questions>
