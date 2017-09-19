@@ -1,4 +1,5 @@
 <questions>
+    //all the history questions
     <history>
         <question>
            <q>Who was Kit Carson?</q>
@@ -81,6 +82,8 @@
             <correct>3</correct>
         </question>
     </history>
+
+    //all the math questions
     <math>
         <question>
             <q>What is 12 x 12</q>
@@ -163,6 +166,8 @@
             <correct>0</correct>
         </question>
     </math>
+
+    //all the song questions
     <songs>
         <question>
         <q>What song has the lyrics:
@@ -254,6 +259,8 @@
             <correct>1</correct>
         </question>
     </songs>
+
+    //all the sports questions
     <sports>
         <question>
             <q>Which Michael Phelps fact is not true?</q>
