@@ -42,7 +42,7 @@ import org.w3c.dom.Element;
 /**
  * Created by student on 9/12/17.
  */
-
+@SuppressWarnings("serial")
 public class Main extends Application {
 
     private MainMenu mainMenu;
@@ -176,13 +176,14 @@ public class Main extends Application {
 
     private class GameMenu extends Parent {
         private ArrayList<questionAnswer> classes;
-        private int points = 0;
+        private int points;
 
         public GameMenu(ArrayList<questionAnswer> classes) {
             VBox menu = new VBox(10);
             menu.setTranslateX(100);
             menu.setTranslateY(200);
             this.classes = classes;
+            points = 0;
             refreshScreen(classes, menu);
         }
 
@@ -207,6 +208,10 @@ public class Main extends Application {
 
             Title question = new Title(quest.getQuestion());
             question.setAlignment(Pos.CENTER);
+
+            Title pointDisplay = new Title("Score: "  + points);
+            pointDisplay.setAlignment(Pos.CENTER);
+            pointDisplay.setPrefSize(80, 30);
 
             QuestionButton quesbtnA = new QuestionButton(quest.getAnswers(0));
             quesbtnA.setOnMouseClicked(event -> {
@@ -243,15 +248,14 @@ public class Main extends Application {
                 if (determineAnswer(quest, 3)) {
                     //add points
                     points += 100;
-                    reset(classes, menu, bg);
                 }
-
+                reset(classes, menu, bg);
             });
 
             bg.setFill(Color.GRAY);
             bg.setOpacity(0.4);
 
-            menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD);
+            menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD, pointDisplay);
             getChildren().addAll(bg, menu);
         }
     }
