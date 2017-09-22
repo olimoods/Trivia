@@ -1,5 +1,4 @@
 import javafx.animation.AnimationTimer;
-import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
@@ -17,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
@@ -92,6 +90,7 @@ public class Main extends Application {
         mainMenu.setVisible(true);
 
         root.getChildren().addAll(imgView, mainMenu);
+
         Scene scene = new Scene(root);
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ESCAPE) {
@@ -139,6 +138,7 @@ public class Main extends Application {
         img.setFitHeight(50);
         img.setX(0);
         img.setY(0);
+        img.setOpacity(0.6);
 
         // Music system (really bad) occasional error
 //        String str = "res/songs/OliverAndTyler.m4a";
@@ -176,6 +176,7 @@ public class Main extends Application {
 
     private class GameMenu extends Parent {
         private ArrayList<questionAnswer> classes;
+        private int points = 0;
 
         public GameMenu(ArrayList<questionAnswer> classes) {
             VBox menu = new VBox(10);
@@ -189,74 +190,68 @@ public class Main extends Application {
             return quest.getCorrectAnswer() == index;
         }
 
-        private int points = 0;
-
-        private void refresh(ArrayList<questionAnswer> classes, VBox menu) {
+        private void reset(ArrayList<questionAnswer> classes, VBox menu, Rectangle bg) {
+            getChildren().removeAll(menu, gameMenu, bg);
+            GameMenu gameMenu = new GameMenu(classes);
+            getChildren().add(gameMenu);
         }
+
         private void refreshScreen(ArrayList<questionAnswer> classes, VBox menu) {
 
-            final int offset = 200;
             int rand = (int) (Math.random() * classes.size());
             questionAnswer quest = classes.get(rand);
-            System.out.println(quest);
+//            System.out.println(quest);
             classes.remove(rand);
 
+            Rectangle bg = new Rectangle(800, 720);
 
             Title question = new Title(quest.getQuestion());
-
+            question.setAlignment(Pos.CENTER);
 
             QuestionButton quesbtnA = new QuestionButton(quest.getAnswers(0));
             quesbtnA.setOnMouseClicked(event -> {
-//                System.out.println("hi");
 
                 if (determineAnswer(quest, 0)) {
                     points += 100;
                     //add points
-
-                    refresh(classes, menu);
                 }
-
+                reset(classes, menu, bg);
             });
+
             QuestionButton quesbtnB = new QuestionButton(quest.getAnswers(1));
             quesbtnB.setOnMouseClicked(event -> {
-
                 if (determineAnswer(quest, 1)) {
                     //add points
                     points += 100;
-
-                    refresh(classes, menu);
                 }
-
+                reset(classes, menu, bg);
             });
+
             QuestionButton quesbtnC = new QuestionButton(quest.getAnswers(2));
             quesbtnC.setOnMouseClicked(event -> {
 
                 if (determineAnswer(quest, 2)) {
                     //add points
                     points += 100;
-
-                    refresh(classes, menu);
                 }
-
+                reset(classes, menu, bg);
             });
+
             QuestionButton quesbtnD = new QuestionButton(quest.getAnswers(3));
             quesbtnD.setOnMouseClicked(event -> {
 
                 if (determineAnswer(quest, 3)) {
                     //add points
                     points += 100;
-                    System.out.println(points);
-                    refresh(classes, menu);
+                    reset(classes, menu, bg);
                 }
 
             });
 
-            menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD);
-
-
-            Rectangle bg = new Rectangle(800, 720);
             bg.setFill(Color.GRAY);
             bg.setOpacity(0.4);
+
+            menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD);
             getChildren().addAll(bg, menu);
         }
     }
@@ -275,12 +270,12 @@ public class Main extends Application {
 
 
             try {
-                File inputFile = new File("/Users/student/IdeaProjects/Trivia-by-olivia/src/Questions.xml");
+                File inputFile = new File("/Users/student/IdeaProjects/Trivia/src/Questions.xml");
                 DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
                 Document doc = dBuilder.parse(inputFile);
                 doc.getDocumentElement().normalize();
-                System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+//                System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
                 NodeList nList = doc.getElementsByTagName("questions");
 
                 String question;
@@ -294,7 +289,7 @@ public class Main extends Application {
                 for (int temp = 0; temp < nList.getLength(); temp++) {
                     Node nNode2 = nList.item(temp);
                     NodeList nl = nNode2.getChildNodes();
-                    System.out.println("\nCurrent Element :" + nNode2.getNodeName());
+//                    System.out.println("\nCurrent Element :" + nNode2.getNodeName());
                     for (int temp1 = 0; temp1 < nl.getLength(); temp1++) {
                         Node nNode1 = nl.item(temp1);
                         NodeList nl2 = nNode1.getChildNodes();
@@ -327,7 +322,7 @@ public class Main extends Application {
                                         .item(0)
                                         .getTextContent();
 
-                                System.out.println(question);
+//                                System.out.println(question);
                                 classes.add(new questionAnswer(question, a1, a2, a3, a4, Integer.parseInt(correct)));
                             }
                         }
@@ -400,6 +395,7 @@ public class Main extends Application {
                     getChildren().remove(menu1);
                 });
             });
+
             MenuButton btnSound = new MenuButton("Sound");
             MenuButton btnVideo = new MenuButton("Video");
 
@@ -418,7 +414,8 @@ public class Main extends Application {
 
         public Title(String name) {
             text = new Text(name);
-            text.setFont(text.getFont().font(35));
+            text.setFill(Color.WHITE);
+            text.setFont(text.getFont().font(30));
 
             Rectangle bg = new Rectangle(250, 60);
             bg.setOpacity(0);
@@ -428,13 +425,6 @@ public class Main extends Application {
             setAlignment(Pos.CENTER);
 //            setRotate(-0.5);
             getChildren().addAll(bg, text);
-
-            DropShadow drop = new DropShadow(80, Color.WHITE);
-            drop.setInput(new Glow(8));
-            drop.setSpread(1.5);
-
-            setOnMousePressed(event -> setEffect(drop));
-            setOnMouseReleased(event -> setEffect(null));
         }
     }
 
@@ -480,6 +470,7 @@ public class Main extends Application {
 
         public MenuButton(String name) {
             text = new Text(name);
+            text.setFill(Color.WHITE);
             text.setFont(text.getFont().font(20));
 
             Rectangle bg = new Rectangle(250, 30);
