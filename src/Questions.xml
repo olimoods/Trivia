@@ -1,5 +1,6 @@
 <?xml version = "1.0"?>
 <questions>
+    //all the history questions
     <history>
         <question>
            <q>Who was Kit Carson?</q>
@@ -82,6 +83,8 @@
             <correct>3</correct>
         </question>
     </history>
+
+    //all the math questions
     <math>
         <question>
             <q>What is 12 x 12</q>
@@ -164,6 +167,8 @@
             <correct>0</correct>
         </question>
     </math>
+
+    //all the song questions
     <songs>
         <question>
         <q>What song has the lyrics:
@@ -184,7 +189,7 @@
             <a3>"California Girls" by the Beach Boys</a3>
             <a4>"California Gurls"by Katy Perry</a4>
             <correct>3</correct>
-        </question>
+        </question> //california gurls
         <question>
             <q>Which song is not by Bruno Mars?</q>
             <a1>Just the Way You Are</a1>
@@ -255,6 +260,8 @@
             <correct>1</correct>
         </question>
     </songs>
+
+    //all the sports questions
     <sports>
         <question>
             <q>Which Michael Phelps fact is not true?</q>
