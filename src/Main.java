@@ -1,4 +1,5 @@
 import javafx.animation.AnimationTimer;
+import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
@@ -17,8 +18,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
@@ -28,8 +27,6 @@ import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -117,14 +114,14 @@ public class Main extends Application {
         return scene;
     }
 
-    private Scene createGame() throws IOException {
+    private Scene createGame(ArrayList<questionAnswer> classes) throws IOException {
         Pane root = new Pane();
         root.setPrefSize(800, 720);
         Canvas canvas = new Canvas(800, 720);
         g = canvas.getGraphicsContext2D();
+        g.clearRect(0, 0, 800, 720);
 
-
-        gameMenu = new GameMenu();
+        gameMenu = new GameMenu(classes);
         gameMenu.setVisible(true);
 
 
@@ -178,40 +175,88 @@ public class Main extends Application {
     }
 
     private class GameMenu extends Parent {
-        public GameMenu() {
+        private ArrayList<questionAnswer> classes;
+
+        public GameMenu(ArrayList<questionAnswer> classes) {
             VBox menu = new VBox(10);
             menu.setTranslateX(100);
             menu.setTranslateY(200);
+            this.classes = classes;
+            refreshScreen(classes, menu);
+        }
+
+        private boolean determineAnswer(questionAnswer quest, int index) {
+            return quest.getCorrectAnswer() == index;
+        }
+
+        private int points = 0;
+
+        private void refreshScreen(ArrayList<questionAnswer> classes, VBox menu) {
 
             final int offset = 200;
+            int rand = (int) (Math.random() * classes.size());
+            questionAnswer quest = classes.get(rand);
+            System.out.println(quest);
+            classes.remove(rand);
 
-            Title question = new Title("Question");
+
+            Title question = new Title(quest.getQuestion());
 
 
-            QuestionButton quesbtnA = new QuestionButton("Question A");
+            QuestionButton quesbtnA = new QuestionButton(quest.getAnswers(0));
             quesbtnA.setOnMouseClicked(event -> {
+//                System.out.println("hi");
+
+                if (determineAnswer(quest, 0)) {
+                    points += 100;
+                    //add points
+
+                    refreshScreen(classes, menu);
+                }
 
             });
-            QuestionButton quesbtnB = new QuestionButton("Question B");
-            quesbtnA.setOnMouseClicked(event -> {
+            QuestionButton quesbtnB = new QuestionButton(quest.getAnswers(1));
+            quesbtnB.setOnMouseClicked(event -> {
+
+                if (determineAnswer(quest, 1)) {
+                    //add points
+                    points += 100;
+
+                    refreshScreen(classes, menu);
+                }
 
             });
-            QuestionButton quesbtnC = new QuestionButton("Question C");
-            quesbtnA.setOnMouseClicked(event -> {
+            QuestionButton quesbtnC = new QuestionButton(quest.getAnswers(2));
+            quesbtnC.setOnMouseClicked(event -> {
+
+                if (determineAnswer(quest, 2)) {
+                    //add points
+                    points += 100;
+
+                    refreshScreen(classes, menu);
+                }
 
             });
-            QuestionButton quesbtnD = new QuestionButton("Question D");
-            quesbtnA.setOnMouseClicked(event -> {
+            QuestionButton quesbtnD = new QuestionButton(quest.getAnswers(3));
+            quesbtnD.setOnMouseClicked(event -> {
+
+                if (determineAnswer(quest, 3)) {
+                    //add points
+                    points += 100;
+                    System.out.println(points);
+
+                    refreshScreen(classes, menu);
+                }
 
             });
 
             menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD);
 
+
             Rectangle bg = new Rectangle(800, 720);
             bg.setFill(Color.GRAY);
             bg.setOpacity(0.4);
             getChildren().addAll(bg, menu);
-
         }
     }
 
@@ -226,9 +271,76 @@ public class Main extends Application {
 
             menu1.setTranslateX(100);
             menu1.setTranslateY(200);
+            ArrayList<questionAnswer> classes = new ArrayList<questionAnswer>();
+
+
+            try {
+                File inputFile = new File("/Users/student/IdeaProjects/Trivia-by-olivia/src/Questions.xml");
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document doc = dBuilder.parse(inputFile);
+                doc.getDocumentElement().normalize();
+                System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+                NodeList nList = doc.getElementsByTagName("questions");
+
+                String question;
+                String a1;
+                String a2;
+                String a3;
+                String a4;
+                String correct;
+
+
+                for (int temp = 0; temp < nList.getLength(); temp++) {
+                    Node nNode2 = nList.item(temp);
+                    NodeList nl = nNode2.getChildNodes();
+                    System.out.println("\nCurrent Element :" + nNode2.getNodeName());
+                    for (int temp1 = 0; temp1 < nl.getLength(); temp1++) {
+                        Node nNode1 = nl.item(temp1);
+                        NodeList nl2 = nNode1.getChildNodes();
+                        for (int temp2 = 0; temp2 < nl2.getLength(); temp2++) {
+                            Node nNode = nl2.item(temp2);
+                            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                                Element eElement = (Element) nNode;
+                                question = eElement
+                                        .getElementsByTagName("q")
+                                        .item(0)
+                                        .getTextContent();
+                                a1 = eElement
+                                        .getElementsByTagName("a1")
+                                        .item(0)
+                                        .getTextContent();
+                                a2 = eElement
+                                        .getElementsByTagName("a2")
+                                        .item(0)
+                                        .getTextContent();
+                                a3 = eElement
+                                        .getElementsByTagName("a3")
+                                        .item(0)
+                                        .getTextContent();
+                                a4 = eElement
+                                        .getElementsByTagName("a4")
+                                        .item(0)
+                                        .getTextContent();
+                                correct = eElement
+                                        .getElementsByTagName("correct")
+                                        .item(0)
+                                        .getTextContent();
+
+                                System.out.println(question);
+                                classes.add(new questionAnswer(question, a1, a2, a3, a4, Integer.parseInt(correct)));
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
 
             final int offset = 400;
             menu1.setTranslateX(offset);
+
 
             Title title = new Title("Trivia");
 
@@ -241,7 +353,10 @@ public class Main extends Application {
                     ft.setToValue(0);
                     ft.setOnFinished(evt -> this.setVisible(false));
                     ft.play();
-                    primaryStage.setScene(createGame());
+                    primaryStage.close();
+                    primaryStage.setScene(createGame(classes));
+                    primaryStage.show();
+
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -403,71 +518,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
 
-
-        try {
-            File inputFile = new File("input.txt");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(inputFile);
-            doc.getDocumentElement().normalize();
-            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-            NodeList nList = doc.getElementsByTagName("questions");
-
-            String question;
-            String a1;
-            String a2;
-            String a3;
-            String a4;
-            int correct;
-
-
-            for (int temp = 0; temp < nList.getLength(); temp++) {
-                Node nNode1 = nList.item(temp);
-                NodeList nl = nNode1.getChildNodes();
-                System.out.println("\nCurrent Element :" + nNode1.getNodeName());
-                for (int temp1 = 0; temp1 < nl.getLength(); temp1++) {
-                    Node nNode = nl.item(temp1);
-                    if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                        Element eElement = (Element) nNode;
-                        question = eElement
-                                .getElementsByTagName("q")
-                                .item(0)
-                                .getTextContent();
-                        a1 = eElement
-                                .getElementsByTagName("a1")
-                                .item(0)
-                                .getTextContent();
-                        a2 = eElement
-                                .getElementsByTagName("a2")
-                                .item(0)
-                                .getTextContent();
-                        a3 = eElement
-                                .getElementsByTagName("a3")
-                                .item(0)
-                                .getTextContent();
-                        a3 = eElement
-                                .getElementsByTagName("a4")
-                                .item(0)
-                                .getTextContent();
-                        correct = Integer.parseInt(eElement
-                                .getElementsByTagName("correct")
-                                .item(0)
-                                .getTextContent());
-
-                        System.out.println(question);
-
-
-//                    System.out.println("Marks : "
-//                            + eElement
-//                            .getElementsByTagName("marks")
-//                            .item(0)
-//                            .getTextContent());
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
-

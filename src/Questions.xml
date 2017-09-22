@@ -1,3 +1,4 @@
+<?xml version = "1.0"?>
 <questions>
     <history>
         <question>
@@ -216,7 +217,7 @@
             <a2>"Tumblr Girls" by G-Eazy</a2>
             <a3>"High You Are" by What So Not</a3>
             <a4>"Let's Get Lost" by G-Eazy</a4>
-            <correct></correct>
+            <correct>0</correct>
         </question>
         <question>
             <q>What song has the lyrics:
