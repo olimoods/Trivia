@@ -141,10 +141,10 @@ public class Main extends Application {
         img.setY(0);
 
         // Music system (really bad) occasional error
-        String str = "res/songs/OliverAndTyler.m4a";
-        String file = new File(str).toURI().toString();
-        AudioClip clip = new AudioClip(file);
-        clip.play();
+//        String str = "res/songs/OliverAndTyler.m4a";
+//        String file = new File(str).toURI().toString();
+//        AudioClip clip = new AudioClip(file);
+//        clip.play();
 
 
         root.getChildren().addAll(canvas, img, gameMenu);
@@ -191,6 +191,9 @@ public class Main extends Application {
 
         private int points = 0;
 
+        private void refresh(ArrayList<questionAnswer> classes, VBox menu) {
+            refreshScreen(classes, menu);
+        }
         private void refreshScreen(ArrayList<questionAnswer> classes, VBox menu) {
 
             final int offset = 200;
@@ -211,7 +214,7 @@ public class Main extends Application {
                     points += 100;
                     //add points
 
-                    refreshScreen(classes, menu);
+                    refresh(classes, menu);
                 }
 
             });
@@ -222,7 +225,7 @@ public class Main extends Application {
                     //add points
                     points += 100;
 
-                    refreshScreen(classes, menu);
+                    refresh(classes, menu);
                 }
 
             });
@@ -233,7 +236,7 @@ public class Main extends Application {
                     //add points
                     points += 100;
 
-                    refreshScreen(classes, menu);
+                    refresh(classes, menu);
                 }
 
             });
@@ -244,8 +247,7 @@ public class Main extends Application {
                     //add points
                     points += 100;
                     System.out.println(points);
-
-                    refreshScreen(classes, menu);
+                    refresh(classes, menu);
                 }
 
             });
@@ -259,7 +261,6 @@ public class Main extends Application {
             getChildren().addAll(bg, menu);
         }
     }
-
 
     private class MainMenu extends Parent {
         public MainMenu() {
@@ -353,10 +354,10 @@ public class Main extends Application {
                     ft.setToValue(0);
                     ft.setOnFinished(evt -> this.setVisible(false));
                     ft.play();
-                    primaryStage.close();
                     primaryStage.setScene(createGame(classes));
-                    primaryStage.show();
-
+                    this.getChildren().removeAll();
+                    menu0.getChildren().removeAll();
+                    menu1.getChildren().removeAll();
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -513,7 +514,6 @@ public class Main extends Application {
             setOnMouseReleased(event -> setEffect(null));
         }
     }
-
 
     public static void main(String[] args) {
         launch(args);
