@@ -192,7 +192,6 @@ public class Main extends Application {
         private int points = 0;
 
         private void refresh(ArrayList<questionAnswer> classes, VBox menu) {
-            refreshScreen(classes, menu);
         }
         private void refreshScreen(ArrayList<questionAnswer> classes, VBox menu) {
 
@@ -355,9 +354,7 @@ public class Main extends Application {
                     ft.setOnFinished(evt -> this.setVisible(false));
                     ft.play();
                     primaryStage.setScene(createGame(classes));
-                    this.getChildren().removeAll();
-                    menu0.getChildren().removeAll();
-                    menu1.getChildren().removeAll();
+                    getChildren().remove(mainMenu);
 
                 } catch (IOException e) {
                     e.printStackTrace();
