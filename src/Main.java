@@ -205,19 +205,17 @@ public class Main extends Application {
             classes.remove(rand);
 
             Rectangle bg = new Rectangle(800, 720);
+            Text t = new Text("Score: " + getPoints());
 
             Title question = new Title(quest.getQuestion());
-            question.setAlignment(Pos.CENTER);
-
-            Title pointDisplay = new Title("Score: "  + points);
-            pointDisplay.setAlignment(Pos.CENTER);
-            pointDisplay.setPrefSize(80, 30);
+            question.text.setFont(question.text.getFont().font(20));
+            question.setAlignment(Pos.CENTER_LEFT);
 
             QuestionButton quesbtnA = new QuestionButton(quest.getAnswers(0));
             quesbtnA.setOnMouseClicked(event -> {
 
                 if (determineAnswer(quest, 0)) {
-                    points += 100;
+                    addPoints(100);
                     //add points
                 }
                 reset(classes, menu, bg);
@@ -227,7 +225,7 @@ public class Main extends Application {
             quesbtnB.setOnMouseClicked(event -> {
                 if (determineAnswer(quest, 1)) {
                     //add points
-                    points += 100;
+                    addPoints(100);
                 }
                 reset(classes, menu, bg);
             });
@@ -237,7 +235,7 @@ public class Main extends Application {
 
                 if (determineAnswer(quest, 2)) {
                     //add points
-                    points += 100;
+                    addPoints(100);
                 }
                 reset(classes, menu, bg);
             });
@@ -247,7 +245,7 @@ public class Main extends Application {
 
                 if (determineAnswer(quest, 3)) {
                     //add points
-                    points += 100;
+                    addPoints(100);
                 }
                 reset(classes, menu, bg);
             });
@@ -255,8 +253,15 @@ public class Main extends Application {
             bg.setFill(Color.GRAY);
             bg.setOpacity(0.4);
 
-            menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD, pointDisplay);
+            menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD, t);
             getChildren().addAll(bg, menu);
+        }
+
+        public int getPoints(){
+            return points;
+        }
+        public void addPoints(int x){
+            points = points + x;
         }
     }
 
@@ -271,7 +276,6 @@ public class Main extends Application {
             menu1.setTranslateX(100);
             menu1.setTranslateY(200);
             ArrayList<questionAnswer> classes = new ArrayList<questionAnswer>();
-
 
             try {
                 File inputFile = new File("/Users/student/IdeaProjects/Trivia/src/Questions.xml");
@@ -380,6 +384,7 @@ public class Main extends Application {
 
             MenuButton btnQuit = new MenuButton("Quit");
             btnQuit.setOnMouseClicked(event -> {
+                primaryStage.close();
                 System.exit(0);
             });
 
