@@ -61,14 +61,16 @@
         <question>
             <q>Which fact about Napoleon is not true?</q>
             <a1>He was once attacked by rabbits.</a1>
-            <a2>A New Orleans man hired a pirate to rescue Napoleon from his prison on St. Helena.</a2>
+            <a2>A New Orleans man hired a pirate to rescue
+                Napoleon from his prison on St. Helena.</a2>
             <a3>He was short for his era.</a3>
             <a4>His army found the Rosetta Stone.</a4>
             <correct>2</correct>
         </question>
         <question>
             <q>Which fact is not true?</q>
-            <a1>Before the mid-19th century dentures were commonly made with teeth pulled from the mouths of dead soldiers.</a1>
+            <a1>Before the mid-19th century dentures were commonly made
+                with teeth pulled from the mouths of dead soldiers.</a1>
             <a2>The Hitler killed more people than Stalin did.</a2>
             <a3>Ice age Britons used skulls of the dead as cups.</a3>
             <a4>The Romans used human urine as mouthwash.</a4>
@@ -76,9 +78,12 @@
         </question>
         <question>
             <q>What fact is not true?</q>
-            <a1>Animals were put on trial in medieval times and routinely sentenced to death.</a1>
-            <a2>Japanese samurai's disemboweled themselves with their sword when in danger of being captured.</a2>
-            <a3>In the 16th and 17th century wealthy Europeans ate corpses thinking they'd cure them of ailments.</a3>
+            <a1>Animals were put on trial in medieval times and
+                routinely sentenced to death.</a1>
+            <a2>Japanese samurai's disemboweled themselves with
+                their sword when in danger of being captured.</a2>
+            <a3>In the 16th and 17th century wealthy Europeans
+                ate corpses thinking they'd cure them of ailments.</a3>
             <a4>Roughly 3,000 people died when Pompeii erupted.</a4>
             <correct>3</correct>
         </question>
@@ -244,7 +249,8 @@
             <correct>3</correct>
         </question>
         <question>
-            <q>When did "The Best of Both Worlds" by Hannah Montana come out?</q>
+            <q>When did "The Best of Both Worlds"
+                by Hannah Montana come out?</q>
             <a1>2004</a1>
             <a2>2005</a2>
             <a3>2006</a3>
@@ -266,62 +272,85 @@
     <sports>
         <question>
             <q>Which Michael Phelps fact is not true?</q>
-            <a1>If he were his own country, he’d rank number 35 on the all-time Olympic Gold Medal List, ahead of 97 nations.</a1>
+            <a1>If he were his own country, he’d rank number
+                35 on the all-time Olympic Gold Medal List,
+                ahead of 97 nations.</a1>
             <a2>He has 23 gold medals.</a2>
             <a3>He started swimming when he was 5.</a3>
-            <a4>The first stroke he learned was backstroke because he was scared of putting his head underwater.</a4>
+            <a4>The first stroke he learned was backstroke
+                because he was scared of putting his head underwater.</a4>
             <correct>2</correct>
         </question>
         <question>
             <q>Which golf fact is not true?</q>
             <a1>The average golf ball has 336 dimples</a1>
-            <a2>Jordan Spieth won $61,867 less at the masters than Arnold Palmer won in his entire career.</a2>
+            <a2>Jordan Spieth won $61,867 less at the masters
+                than Arnold Palmer won in his entire career.</a2>
             <a3>Astronauts played golf on the moon.</a3>
-            <a4>If you walked 18 holes, you would walk approximately 5 miles.</a4>
+            <a4>If you walked 18 holes, you would walk approximately
+                5 miles.</a4>
             <correct>3</correct>
         </question>
         <question>
             <q>Which baseball fact is not true?</q>
-            <a1>The National Baseball Hall of Fame and Museum was created to celebrate baseball's 50th anniversary.</a1>
-            <a2>There are a total of 18 minutes of action in an average game.</a2>
-            <a3>The first World Series was played between Pittsburgh and Boston in 1903.</a3>
-            <a4>Pitcher Nolan Ryan played 27 seasons in major league baseball and struck out more batters in his career than any other pitcher.</a4>
+            <a1>The National Baseball Hall of Fame and Museum
+                was created to celebrate baseball's 50th anniversary.</a1>
+            <a2>There are a total of 18 minutes of action in
+                an average game.</a2>
+            <a3>The first World Series was played between
+                Pittsburgh and Boston in 1903.</a3>
+            <a4>Pitcher Nolan Ryan played 27 seasons in major
+                league baseballand struck out more batters in his
+                career than any other pitcher.</a4>
             <correct>0</correct>
         </question>
         <question>
             <q>Which hockey fact is not true?</q>
-            <a1>Only 11 goalies have ever scored a goal in the history of the NHL.</a1>
+            <a1>Only 11 goalies have ever scored a goal
+                in the history of the NHL.</a1>
             <a2>The Red Wings have 12 Stanley Cup titles.</a2>
-            <a3>The Boston Bruins name is spelled "BQSTQN BRUINS" on the Stanley Cup for their 1971-72 title.</a3>
+            <a3>The Boston Bruins name is spelled"BQSTQN BRUINS"
+                on the Stanley Cup for their 1971-72 title.</a3>
             <a4>The Dallas Stars won the 1999 Stanley Cup.</a4>
             <correct>1</correct>
         </question>
         <question>
             <q>Which Olympic fact is not true?</q>
-            <a1>China did not win an Olympic Medal until 1984, and they won 100 medal in the 2008 Beijing games.</a1>
+            <a1>China did not win an Olympic Medal until 1984, and
+                they won 100 medal in the 2008 Beijing games.</a1>
             <a2>Germany has held the summer Olympics three times.</a2>
-            <a3>Bob Beamon’s 1968 Olympic record in the long jump would have won the 2012 Olympics by almost 2 feet.</a3>
-            <a4>There have been 3 Olympic games held in countries that no longer exist.</a4>
+            <a3>Bob Beamon’s 1968 Olympic record in the long jump would
+                have won the 2012 Olympics by almost 2 feet.</a3>
+            <a4>There have been 3 Olympic games held in countries
+                that no longer exist.</a4>
             <correct>1</correct>
         </question>
         <question>
             <q>Which basketball fact is not true?</q>
-            <a1>Only 72 players in NBA history have attempted more free throws in their careers than the 5,317 that Shaquille O'Neal missed.</a1>
+            <a1>Only 72 players in NBA history have attempted
+                more free throws in their careers than the 5,317
+                that Shaquille O'Neal missed.</a1>
             <a2>The Golden State Warriors won the 1992 NBA playoffs.</a2>
-            <a3>Bruce Jenner was drafted NO. 139 by the NBA's Kansas City Kings after winning the Men's Decathlon at the 1976 Olympics.</a3>
+            <a3>Bruce Jenner was drafted NO. 139 by the NBA's
+                Kansas City Kings after winning the Men's
+                Decathlon at the 1976 Olympics.</a3>
             <a4>The Detroit Pistons won the 1989 NBA playoffs.</a4>
             <correct>1</correct>
         </question>
         <question>
             <q>Which football fact is not true?</q>
-            <a1>There has been a regular-season NFL game on every single day of the week.</a1>
-            <a2>The Cleveland Browns are the only team to neither play in nor host a Super Bowl.</a2>
-            <a3>Joe Gibbs is the only coach to win the Super Bowl with three different quarterbacks</a3>
+            <a1>There has been a regular-season NFL
+                game on every single day of the week.</a1>
+            <a2>The Cleveland Browns are the only team
+                to neither play in nor host a Super Bowl.</a2>
+            <a3>Joe Gibbs is the only coach to win the Super
+                Bowl with three different quarterbacks</a3>
             <a4>The Dallas Cowboys won the 1993 Super Bowl.</a4>
             <correct>3</correct>
         </question>
         <question>
-            <q>Which city won the Stanley Cup, World Series, and Super Bowl all in the same year?</q>
+            <q>Which city won the Stanley Cup, World Series,
+                and Super Bowl all in the same year?</q>
             <a1>Detroit</a1>
             <a2>Boston</a2>
             <a3>Cleveland</a3>
