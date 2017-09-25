@@ -17,12 +17,15 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import javafx.scene.input.KeyCode;
 
+import java.awt.*;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -48,6 +51,7 @@ public class Main extends Application {
     private MainMenu mainMenu;
     private GameMenu gameMenu;
     private Stage primaryStage;
+    private int points;
 
     private Emitter emitter = new FireEmitter();
     private List<Particle> particals = new ArrayList<>();
@@ -56,11 +60,19 @@ public class Main extends Application {
 
     private double mouseX, mouseY;
 
-    private void onUpdate() {
+    private void onUpdate() throws IOException {
         g.setGlobalAlpha(1.0);
         g.setGlobalBlendMode(BlendMode.SRC_OVER);
-        g.setFill(Color.BLACK);
-        g.fillRect(0, 0, 800, 720);
+//        g.setFill(Color.BLACK);
+//        g.fillRect(0, 0, 800, 720);
+        Pane root = new Pane();
+        root.setPrefSize(800, 720);
+        Image image1 = new Image(new FileInputStream("/Users/student/IdeaProjects/Trivia-by-olivia/res/images/Penguins.jpg"));
+        g.drawImage(image1,0,0,800,720);
+
+
+
+//
 
         particals.addAll(emitter.emit(mouseX, mouseY));
         for (Iterator<Particle> iterator = particals.iterator(); iterator.hasNext(); ) {
@@ -79,7 +91,7 @@ public class Main extends Application {
         Pane root = new Pane();
         root.setPrefSize(800, 720);
 
-        InputStream is = Files.newInputStream(Paths.get("res/images/Penguins.jpg"));
+        InputStream is = Files.newInputStream(Paths.get("res/sickgif.gif"));
         Image img = new Image(is);
         is.close();
         ImageView imgView = new ImageView(img);
@@ -159,7 +171,12 @@ public class Main extends Application {
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                onUpdate();
+                try {
+                    onUpdate();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
             }
         };
         timer.start();
@@ -176,14 +193,12 @@ public class Main extends Application {
 
     private class GameMenu extends Parent {
         private ArrayList<questionAnswer> classes;
-        private int points;
 
         public GameMenu(ArrayList<questionAnswer> classes) {
             VBox menu = new VBox(10);
             menu.setTranslateX(100);
             menu.setTranslateY(200);
             this.classes = classes;
-            points = 0;
             refreshScreen(classes, menu);
         }
 
@@ -191,8 +206,8 @@ public class Main extends Application {
             return quest.getCorrectAnswer() == index;
         }
 
-        private void reset(ArrayList<questionAnswer> classes, VBox menu, Rectangle bg) {
-            getChildren().removeAll(menu, gameMenu, bg);
+        private void reset(ArrayList<questionAnswer> classes, VBox menu, Rectangle bg, Text t) {
+            getChildren().removeAll(menu, gameMenu, bg, t);
             GameMenu gameMenu = new GameMenu(classes);
             getChildren().add(gameMenu);
         }
@@ -206,6 +221,7 @@ public class Main extends Application {
 
             Rectangle bg = new Rectangle(800, 720);
             Text t = new Text("Score: " + getPoints());
+            t.setFill(Color.WHITE);
 
             Title question = new Title(quest.getQuestion());
             question.text.setFont(question.text.getFont().font(20));
@@ -215,19 +231,19 @@ public class Main extends Application {
             quesbtnA.setOnMouseClicked(event -> {
 
                 if (determineAnswer(quest, 0)) {
-                    addPoints(100);
+                    points += 100;
                     //add points
                 }
-                reset(classes, menu, bg);
+                reset(classes, menu, bg, t);
             });
 
             QuestionButton quesbtnB = new QuestionButton(quest.getAnswers(1));
             quesbtnB.setOnMouseClicked(event -> {
                 if (determineAnswer(quest, 1)) {
                     //add points
-                    addPoints(100);
+                    points += 100;
                 }
-                reset(classes, menu, bg);
+                reset(classes, menu, bg, t);
             });
 
             QuestionButton quesbtnC = new QuestionButton(quest.getAnswers(2));
@@ -235,9 +251,9 @@ public class Main extends Application {
 
                 if (determineAnswer(quest, 2)) {
                     //add points
-                    addPoints(100);
+                    points += 100;
                 }
-                reset(classes, menu, bg);
+                reset(classes, menu, bg, t);
             });
 
             QuestionButton quesbtnD = new QuestionButton(quest.getAnswers(3));
@@ -245,9 +261,9 @@ public class Main extends Application {
 
                 if (determineAnswer(quest, 3)) {
                     //add points
-                    addPoints(100);
+                    points += 100;
                 }
-                reset(classes, menu, bg);
+                reset(classes, menu, bg, t);
             });
 
             bg.setFill(Color.GRAY);
@@ -255,13 +271,11 @@ public class Main extends Application {
 
             menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD, t);
             getChildren().addAll(bg, menu);
+            System.out.println(points);
         }
 
         public int getPoints(){
             return points;
-        }
-        public void addPoints(int x){
-            points = points + x;
         }
     }
 
@@ -278,7 +292,7 @@ public class Main extends Application {
             ArrayList<questionAnswer> classes = new ArrayList<questionAnswer>();
 
             try {
-                File inputFile = new File("/Users/student/IdeaProjects/Trivia/src/Questions.xml");
+                File inputFile = new File("/Users/student/IdeaProjects/Trivia-by-olivia/src/Questions.xml");
                 DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
                 Document doc = dBuilder.parse(inputFile);
@@ -344,9 +358,7 @@ public class Main extends Application {
             final int offset = 400;
             menu1.setTranslateX(offset);
 
-
             Title title = new Title("Trivia");
-
 
             MenuButton btnPlay = new MenuButton("Play");
             btnPlay.setOnMouseClicked(event -> {
@@ -444,7 +456,7 @@ public class Main extends Application {
             text = new Text(name);
             text.setFont(text.getFont().font(20));
 
-            Rectangle bg = new Rectangle(300, 30);
+            Rectangle bg = new Rectangle(600, 80);
             bg.setOpacity(0.8);
             bg.setFill(Color.DARKGRAY);
             bg.setEffect(new GaussianBlur(4.5));
