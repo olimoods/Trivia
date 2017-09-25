@@ -61,7 +61,7 @@ public class Main extends Application {
     private double mouseX, mouseY;
 
     private void onUpdate() throws IOException {
-        g.setGlobalAlpha(1.0);
+        g.setGlobalAlpha(2.0);
         g.setGlobalBlendMode(BlendMode.SRC_OVER);
 //        g.setFill(Color.BLACK);
 //        g.fillRect(0, 0, 800, 720);
