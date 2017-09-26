@@ -68,8 +68,8 @@ public class Main extends Application {
 //        g.fillRect(0, 0, 800, 720);
         Pane root = new Pane();
         root.setPrefSize(800, 720);
-        Image image1 = new Image(new FileInputStream("/Users/student/IdeaProjects/trivia/res/images/Penguins.jpg"));
-        g.drawImage(image1,0,0,800,720);
+        Image image1 = new Image(new FileInputStream("/Users/student/IdeaProjects/Trivia-by-olivia/res/images/Penguins.jpg"));
+        g.drawImage(image1, 0, 0, 800, 720);
 
 
 
@@ -171,7 +171,7 @@ public class Main extends Application {
             public void handle(long now) {
                 try {
                     onUpdate();
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
 
@@ -216,9 +216,10 @@ public class Main extends Application {
 
 
         private void refreshScreen(ArrayList<questionAnswer> classes, VBox menu) {
+            if (classes.size() > 0) {
 
-            int rand = (int) (Math.random() * classes.size());
-            questionAnswer quest = classes.get(rand);
+                int rand = (int) (Math.random() * classes.size());
+                questionAnswer quest = classes.get(rand);
 //            System.out.println(quest);
             classes.remove(rand);
             clip = null;
@@ -242,21 +243,21 @@ public class Main extends Application {
                 }
             }
 
-            Rectangle bg = new Rectangle(800, 720);
-            Text t = new Text("Score: " + getPoints());
-            t.setFill(Color.WHITE);
+                Rectangle bg = new Rectangle(800, 720);
+                Text t = new Text("Score: " + getPoints());
+                t.setFill(Color.WHITE);
 
-            Title question = new Title(quest.getQuestion());
-            question.text.setFont(question.text.getFont().font(20));
-            question.setAlignment(Pos.CENTER_LEFT);
+                Title question = new Title(quest.getQuestion());
+                question.text.setFont(question.text.getFont().font(20));
+                question.setAlignment(Pos.CENTER_LEFT);
 
-            QuestionButton quesbtnA = new QuestionButton(quest.getAnswers(0));
-            quesbtnA.setOnMouseClicked(event -> {
+                QuestionButton quesbtnA = new QuestionButton(quest.getAnswers(0));
+                quesbtnA.setOnMouseClicked(event -> {
 
-                if (determineAnswer(quest, 0)) {
-                    points += 100;
-                    //add points
-                }
+                    if (determineAnswer(quest, 0)) {
+                        points += 100;
+                        //add points
+                    }
 
                 if(clip != null){
                     clip.stop();
@@ -282,8 +283,8 @@ public class Main extends Application {
                 reset(classes, menu, bg, t);
             });
 
-            QuestionButton quesbtnC = new QuestionButton(quest.getAnswers(2));
-            quesbtnC.setOnMouseClicked(event -> {
+                QuestionButton quesbtnC = new QuestionButton(quest.getAnswers(2));
+                quesbtnC.setOnMouseClicked(event -> {
 
                 if (determineAnswer(quest, 2)) {
                     //add points
@@ -298,8 +299,8 @@ public class Main extends Application {
                 reset(classes, menu, bg, t);
             });
 
-            QuestionButton quesbtnD = new QuestionButton(quest.getAnswers(3));
-            quesbtnD.setOnMouseClicked(event -> {
+                QuestionButton quesbtnD = new QuestionButton(quest.getAnswers(3));
+                quesbtnD.setOnMouseClicked(event -> {
 
                 if (determineAnswer(quest, 3)) {
                     //add points
@@ -314,15 +315,24 @@ public class Main extends Application {
                 reset(classes, menu, bg, t);
             });
 
-            bg.setFill(Color.GRAY);
-            bg.setOpacity(0.4);
+                bg.setFill(Color.GRAY);
+                bg.setOpacity(0.4);
 
-            menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD, t);
-            getChildren().addAll(bg, menu);
-            System.out.println(points);
+                menu.getChildren().addAll(question, quesbtnA, quesbtnB, quesbtnC, quesbtnD, t);
+                getChildren().addAll(bg, menu);
+                System.out.println(points);
+            } else {
+                Title title = new Title("Good Game! Score: " + getPoints());
+                title.text.setFont(title.text.getFont().font(60));
+                title.setPrefSize(800, 720);
+                title.text.setFill(Color.CHOCOLATE);
+                getChildren().add(title);
+                System.out.println("sup");
+
+            }
         }
 
-        public int getPoints(){
+        public int getPoints() {
             return points;
         }
     }
@@ -340,7 +350,7 @@ public class Main extends Application {
             ArrayList<questionAnswer> classes = new ArrayList<questionAnswer>();
 
             try {
-                File inputFile = new File("/Users/student/IdeaProjects/trivia/src/Questions.xml");
+                File inputFile = new File("/Users/student/IdeaProjects/Trivia-by-olivia/src/Questions.xml");
                 DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
                 Document doc = dBuilder.parse(inputFile);
