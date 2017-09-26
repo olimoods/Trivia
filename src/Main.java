@@ -68,7 +68,7 @@ public class Main extends Application {
 //        g.fillRect(0, 0, 800, 720);
         Pane root = new Pane();
         root.setPrefSize(800, 720);
-        Image image1 = new Image(new FileInputStream("/Users/student/IdeaProjects/Trivia-by-olivia/res/images/Penguins.jpg"));
+        Image image1 = new Image(new FileInputStream("/Users/student/IdeaProjects/trivia/res/images/Penguins.jpg"));
         g.drawImage(image1,0,0,800,720);
 
 
@@ -192,6 +192,7 @@ public class Main extends Application {
     private class GameMenu extends Parent {
         private ArrayList<questionAnswer> classes;
         private AudioClip clip;
+        private AudioClip clip2;
 
         public GameMenu(ArrayList<questionAnswer> classes) {
             VBox menu = new VBox(10);
@@ -221,6 +222,7 @@ public class Main extends Application {
 //            System.out.println(quest);
             classes.remove(rand);
             clip = null;
+            clip2 = null;
 
             if(quest.getQuestion().equals("What song is this?")){
                 String str = "res/songs/OliverAndTyler.m4a";
@@ -230,10 +232,14 @@ public class Main extends Application {
 
             }
             if(quest.getQuestion().equals("Which song is this?")){
-                String str = "res/songs/Panda.m4a";
-                String file = new File(str).toURI().toString();
-                clip = new AudioClip(file);
-                clip.play();
+                try {
+                    String str = "res/songs/Panda.mp3";
+                    String file = new File(str).toURI().toString();
+                    clip2 = new AudioClip(file);
+                    clip2.play();
+                } catch(Exception e){
+                    e.printStackTrace();
+                }
             }
 
             Rectangle bg = new Rectangle(800, 720);
@@ -255,6 +261,9 @@ public class Main extends Application {
                 if(clip != null){
                     clip.stop();
                 }
+                if(clip2 != null){
+                    clip2.stop();
+                }
                 reset(classes, menu, bg, t);
             });
 
@@ -266,6 +275,9 @@ public class Main extends Application {
                 }
                 if(clip != null){
                     clip.stop();
+                }
+                if(clip2 != null){
+                    clip2.stop();
                 }
                 reset(classes, menu, bg, t);
             });
@@ -280,6 +292,9 @@ public class Main extends Application {
                 if(clip != null){
                     clip.stop();
                 }
+                if(clip2 != null){
+                    clip2.stop();
+                }
                 reset(classes, menu, bg, t);
             });
 
@@ -292,6 +307,9 @@ public class Main extends Application {
                 }
                 if(clip != null){
                     clip.stop();
+                }
+                if(clip2 != null){
+                    clip2.stop();
                 }
                 reset(classes, menu, bg, t);
             });
@@ -322,7 +340,7 @@ public class Main extends Application {
             ArrayList<questionAnswer> classes = new ArrayList<questionAnswer>();
 
             try {
-                File inputFile = new File("/Users/student/IdeaProjects/Trivia-by-olivia/src/Questions.xml");
+                File inputFile = new File("/Users/student/IdeaProjects/trivia/src/Questions.xml");
                 DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
                 Document doc = dBuilder.parse(inputFile);
