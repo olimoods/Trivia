@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
@@ -153,10 +154,7 @@ public class Main extends Application {
         img.setOpacity(0.6);
 
         // Music system (really bad) occasional error
-//        String str = "res/songs/OliverAndTyler.m4a";
-//        String file = new File(str).toURI().toString();
-//        AudioClip clip = new AudioClip(file);
-//        clip.play();
+//       points
 
 
         root.getChildren().addAll(canvas, img, gameMenu);
@@ -210,7 +208,26 @@ public class Main extends Application {
             getChildren().removeAll(menu, gameMenu, bg, t);
             GameMenu gameMenu = new GameMenu(classes);
             getChildren().add(gameMenu);
+
         }
+        private void caliSong(questionAnswer quest){
+            if(quest.getQuestion().equals("What song is this?")){
+                        String str = "res/songs/OliverAndTyler.m4a";
+        String file = new File(str).toURI().toString();
+        AudioClip clip = new AudioClip(file);
+        clip.play();
+
+            }
+//            if(quest.getQuestion().equals("Which song is this?")){
+//                String str = "/Users/student/IdeaProjects/Trivia-by-olivia/res/songs/Panda.m4a";
+//                String file = new File(str).toURI().toString();
+//                AudioClip clip = new AudioClip(file);
+//                clip.play();
+//
+//            }
+
+        }
+
 
         private void refreshScreen(ArrayList<questionAnswer> classes, VBox menu) {
 
@@ -218,6 +235,7 @@ public class Main extends Application {
             questionAnswer quest = classes.get(rand);
 //            System.out.println(quest);
             classes.remove(rand);
+            caliSong(quest);
 
             Rectangle bg = new Rectangle(800, 720);
             Text t = new Text("Score: " + getPoints());
@@ -234,6 +252,8 @@ public class Main extends Application {
                     points += 100;
                     //add points
                 }
+
+
                 reset(classes, menu, bg, t);
             });
 
