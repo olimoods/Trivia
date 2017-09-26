@@ -18,14 +18,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import javafx.scene.input.KeyCode;
 
-import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,8 +42,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
 /**
- * Created by student on 9/12/17.
+ * Created by Andrew, Oliver, Casey, Tyler!!
  */
+
 @SuppressWarnings("serial")
 public class Main extends Application {
 
@@ -70,7 +69,6 @@ public class Main extends Application {
         root.setPrefSize(800, 720);
         Image image1 = new Image(new FileInputStream("/Users/student/IdeaProjects/Trivia-by-olivia/res/images/Penguins.jpg"));
         g.drawImage(image1, 0, 0, 800, 720);
-
 
 
 //
@@ -153,10 +151,6 @@ public class Main extends Application {
         img.setY(0);
         img.setOpacity(0.6);
 
-        // Music system (really bad) occasional error
-//       points
-
-
         root.getChildren().addAll(canvas, img, gameMenu);
 
         Scene scene = new Scene(root);
@@ -213,35 +207,33 @@ public class Main extends Application {
 
         }
 
-
-
         private void refreshScreen(ArrayList<questionAnswer> classes, VBox menu) {
             if (classes.size() > 0) {
 
                 int rand = (int) (Math.random() * classes.size());
                 questionAnswer quest = classes.get(rand);
 //            System.out.println(quest);
-            classes.remove(rand);
-            clip = null;
-            clip2 = null;
+                classes.remove(rand);
+                clip = null;
+                clip2 = null;
 
-            if(quest.getQuestion().equals("What song is this?")){
-                String str = "res/songs/OliverAndTyler.m4a";
-                String file = new File(str).toURI().toString();
-                clip = new AudioClip(file);
-                clip.play();
-
-            }
-            if(quest.getQuestion().equals("Which song is this?")){
-                try {
-                    String str = "res/songs/Panda.mp3";
+                if (quest.getQuestion().equals("What song is this?")) {
+                    String str = "res/songs/OliverAndTyler.m4a";
                     String file = new File(str).toURI().toString();
-                    clip2 = new AudioClip(file);
-                    clip2.play();
-                } catch(Exception e){
-                    e.printStackTrace();
+                    clip = new AudioClip(file);
+                    clip.play();
+
                 }
-            }
+                if (quest.getQuestion().equals("Which song is this?")) {
+                    try {
+                        String str = "res/songs/Panda.mp3";
+                        String file = new File(str).toURI().toString();
+                        clip2 = new AudioClip(file);
+                        clip2.play();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
 
                 Rectangle bg = new Rectangle(800, 720);
                 Text t = new Text("Score: " + getPoints());
@@ -259,61 +251,61 @@ public class Main extends Application {
                         //add points
                     }
 
-                if(clip != null){
-                    clip.stop();
-                }
-                if(clip2 != null){
-                    clip2.stop();
-                }
-                reset(classes, menu, bg, t);
-            });
+                    if (clip != null) {
+                        clip.stop();
+                    }
+                    if (clip2 != null) {
+                        clip2.stop();
+                    }
+                    reset(classes, menu, bg, t);
+                });
 
-            QuestionButton quesbtnB = new QuestionButton(quest.getAnswers(1));
-            quesbtnB.setOnMouseClicked(event -> {
-                if (determineAnswer(quest, 1)) {
-                    //add points
-                    points += 100;
-                }
-                if(clip != null){
-                    clip.stop();
-                }
-                if(clip2 != null){
-                    clip2.stop();
-                }
-                reset(classes, menu, bg, t);
-            });
+                QuestionButton quesbtnB = new QuestionButton(quest.getAnswers(1));
+                quesbtnB.setOnMouseClicked(event -> {
+                    if (determineAnswer(quest, 1)) {
+                        //add points
+                        points += 100;
+                    }
+                    if (clip != null) {
+                        clip.stop();
+                    }
+                    if (clip2 != null) {
+                        clip2.stop();
+                    }
+                    reset(classes, menu, bg, t);
+                });
 
                 QuestionButton quesbtnC = new QuestionButton(quest.getAnswers(2));
                 quesbtnC.setOnMouseClicked(event -> {
 
-                if (determineAnswer(quest, 2)) {
-                    //add points
-                    points += 100;
-                }
-                if(clip != null){
-                    clip.stop();
-                }
-                if(clip2 != null){
-                    clip2.stop();
-                }
-                reset(classes, menu, bg, t);
-            });
+                    if (determineAnswer(quest, 2)) {
+                        //add points
+                        points += 100;
+                    }
+                    if (clip != null) {
+                        clip.stop();
+                    }
+                    if (clip2 != null) {
+                        clip2.stop();
+                    }
+                    reset(classes, menu, bg, t);
+                });
 
                 QuestionButton quesbtnD = new QuestionButton(quest.getAnswers(3));
                 quesbtnD.setOnMouseClicked(event -> {
 
-                if (determineAnswer(quest, 3)) {
-                    //add points
-                    points += 100;
-                }
-                if(clip != null){
-                    clip.stop();
-                }
-                if(clip2 != null){
-                    clip2.stop();
-                }
-                reset(classes, menu, bg, t);
-            });
+                    if (determineAnswer(quest, 3)) {
+                        //add points
+                        points += 100;
+                    }
+                    if (clip != null) {
+                        clip.stop();
+                    }
+                    if (clip2 != null) {
+                        clip2.stop();
+                    }
+                    reset(classes, menu, bg, t);
+                });
 
                 bg.setFill(Color.GRAY);
                 bg.setOpacity(0.4);
