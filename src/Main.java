@@ -191,6 +191,7 @@ public class Main extends Application {
 
     private class GameMenu extends Parent {
         private ArrayList<questionAnswer> classes;
+        private AudioClip clip;
 
         public GameMenu(ArrayList<questionAnswer> classes) {
             VBox menu = new VBox(10);
@@ -210,23 +211,7 @@ public class Main extends Application {
             getChildren().add(gameMenu);
 
         }
-        private void caliSong(questionAnswer quest){
-            if(quest.getQuestion().equals("What song is this?")){
-                        String str = "res/songs/OliverAndTyler.m4a";
-        String file = new File(str).toURI().toString();
-        AudioClip clip = new AudioClip(file);
-        clip.play();
 
-            }
-//            if(quest.getQuestion().equals("Which song is this?")){
-//                String str = "/Users/student/IdeaProjects/Trivia-by-olivia/res/songs/Panda.m4a";
-//                String file = new File(str).toURI().toString();
-//                AudioClip clip = new AudioClip(file);
-//                clip.play();
-//
-//            }
-
-        }
 
 
         private void refreshScreen(ArrayList<questionAnswer> classes, VBox menu) {
@@ -235,7 +220,21 @@ public class Main extends Application {
             questionAnswer quest = classes.get(rand);
 //            System.out.println(quest);
             classes.remove(rand);
-            caliSong(quest);
+            clip = null;
+
+            if(quest.getQuestion().equals("What song is this?")){
+                String str = "res/songs/OliverAndTyler.m4a";
+                String file = new File(str).toURI().toString();
+                clip = new AudioClip(file);
+                clip.play();
+
+            }
+            if(quest.getQuestion().equals("Which song is this?")){
+                String str = "res/songs/Panda.m4a";
+                String file = new File(str).toURI().toString();
+                clip = new AudioClip(file);
+                clip.play();
+            }
 
             Rectangle bg = new Rectangle(800, 720);
             Text t = new Text("Score: " + getPoints());
@@ -253,7 +252,9 @@ public class Main extends Application {
                     //add points
                 }
 
-
+                if(clip != null){
+                    clip.stop();
+                }
                 reset(classes, menu, bg, t);
             });
 
@@ -262,6 +263,9 @@ public class Main extends Application {
                 if (determineAnswer(quest, 1)) {
                     //add points
                     points += 100;
+                }
+                if(clip != null){
+                    clip.stop();
                 }
                 reset(classes, menu, bg, t);
             });
@@ -273,6 +277,9 @@ public class Main extends Application {
                     //add points
                     points += 100;
                 }
+                if(clip != null){
+                    clip.stop();
+                }
                 reset(classes, menu, bg, t);
             });
 
@@ -282,6 +289,9 @@ public class Main extends Application {
                 if (determineAnswer(quest, 3)) {
                     //add points
                     points += 100;
+                }
+                if(clip != null){
+                    clip.stop();
                 }
                 reset(classes, menu, bg, t);
             });
