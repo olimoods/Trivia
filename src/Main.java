@@ -1,7 +1,7 @@
-import javafx.animation.AnimationTimer;
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,10 +31,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.io.File;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
@@ -257,6 +256,22 @@ public class Main extends Application {
                     if (determineAnswer(quest, 0)) {
                         points += 100;
                         //add points
+                        Title title = new Title("correct!");
+                        title.text.setFont(title.text.getFont().font(60));
+                        title.setPrefSize(800, 720);
+                        title.setAlignment(Pos.TOP_CENTER);
+                        title.text.setFill(Color.GREEN);
+                        getChildren().add(title);
+                        Timeline timeline = new Timeline();
+                        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
+                                new EventHandler<ActionEvent>() {
+
+                                    @Override
+                                    public void handle(ActionEvent event) {
+                                        getChildren().remove(title);
+                                    }
+                                }));
+                        timeline.play();
                     }
 
                 if(clip != null){
@@ -273,6 +288,22 @@ public class Main extends Application {
                 if (determineAnswer(quest, 1)) {
                     //add points
                     points += 100;
+                    Title title = new Title("correct!");
+                    title.text.setFont(title.text.getFont().font(60));
+                    title.setPrefSize(800, 720);
+                    title.setAlignment(Pos.TOP_CENTER);
+                    title.text.setFill(Color.GREEN);
+                    getChildren().add(title);
+                    Timeline timeline = new Timeline();
+                    timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
+                            new EventHandler<ActionEvent>() {
+
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    getChildren().remove(title);
+                                }
+                            }));
+                    timeline.play();
                 }
                 if(clip != null){
                     clip.stop();
@@ -289,6 +320,22 @@ public class Main extends Application {
                 if (determineAnswer(quest, 2)) {
                     //add points
                     points += 100;
+                    Title title = new Title("correct!");
+                    title.text.setFont(title.text.getFont().font(60));
+                    title.setPrefSize(800, 720);
+                    title.setAlignment(Pos.TOP_CENTER);
+                    title.text.setFill(Color.GREEN);
+                    getChildren().add(title);
+                    Timeline timeline = new Timeline();
+                    timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
+                            new EventHandler<ActionEvent>() {
+
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    getChildren().remove(title);
+                                }
+                            }));
+                    timeline.play();
                 }
                 if(clip != null){
                     clip.stop();
@@ -305,6 +352,22 @@ public class Main extends Application {
                 if (determineAnswer(quest, 3)) {
                     //add points
                     points += 100;
+                    Title title = new Title("correct!");
+                    title.text.setFont(title.text.getFont().font(60));
+                    title.setPrefSize(800, 720);
+                    title.setAlignment(Pos.TOP_CENTER);
+                    title.text.setFill(Color.GREEN);
+                    getChildren().add(title);
+                    Timeline timeline = new Timeline();
+                    timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1),
+                            new EventHandler<ActionEvent>() {
+
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    getChildren().remove(title);
+                                }
+                            }));
+                    timeline.play();
                 }
                 if(clip != null){
                     clip.stop();
